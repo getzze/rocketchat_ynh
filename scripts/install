@@ -137,7 +137,6 @@ ynh_script_progression --message="Configuring a mongod..." --weight=1
 
 sed -i "s/^#  engine:/  engine: wiredTiger/"  /etc/mongod.conf
 sed -i "s/^#replication:/replication:\n  replSetName: rs01/" /etc/mongod.conf
-#echo -e "replication:\n  replSetName: \"rs01\"" | tee -a /etc/mongod.conf
 
 mongo --port 27017 --eval "printjson(rs.initiate())"
 mongo --port 27017 --eval "printjson(rs.status())"
@@ -157,10 +156,6 @@ ynh_script_progression --message="Starting a MongoDB service..." --weight=2
 # Start a mongod service
 ynh_exec_warn_less systemctl enable mongod --quiet
 ynh_systemd_action --service_name=mongod --action=restart
-
-#mongo --eval "printjson(rs.initiate())"
-#mongo --port 27017 --eval "printjson(rs.initiate())"
-#mongo --port 27017 --eval "printjson(rs.status())"
 
 #=================================================
 # START SYSTEMD SERVICE
