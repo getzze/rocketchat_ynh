@@ -80,9 +80,6 @@ db_user=$db_name
 ynh_app_setting_set --app=$app --key=db_name --value=$db_name
 ynh_mongo_setup_db --db_user=$db_user --db_name=$db_name
 
-#mongo < ../conf/rocketchat_ldap.js
-db.userdetails.insert(../conf/rocketchat_ldap.js) 
-
 ynh_mongo_exec --user=$db_name --password=$db_pwd [--database=$db_name --command="db.userdetails.insert(../conf/rocketchat_ldap.js) " --eval
 
 #=================================================

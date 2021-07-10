@@ -21,5 +21,5 @@ Notification=none
 ;;; Upgrade options
 	; commit=CommitHash
 		name=Name and date of the commit.
-		manifest_arg=domain=DOMAIN&path=PATH&admin=USER&is_public=1&password=pass&port=666&
+		manifest_arg=domain=DOMAIN&path=PATH&admin=USER&is_public=1&
 		
