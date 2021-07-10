@@ -13,6 +13,7 @@ Restart=always
 RestartSec=10 
 Environment=MONGO_URL=mongodb://127.0.0.1:27017/__APP__?replicaSet=rs01
 Environment=MONGO_OPLOG_URL=mongodb://127.0.0.1:27017/local?replicaSet=rs01
+ExecStartPre=/bin/sleep 20
 
 [Install]
 WantedBy=multi-user.target
