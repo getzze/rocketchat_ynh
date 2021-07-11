@@ -36,12 +36,6 @@
                 "example": "domain.org"
             },
             {
-                "name": "path",
-                "type": "path",
-                "example": "/rocketchat",
-                "default": "/rocketchat"
-            },
-            {
                 "name": "is_public",
                 "type": "boolean",
                 "default": true
