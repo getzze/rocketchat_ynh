@@ -4,7 +4,9 @@ Wants=__MONGODB_SERVICENAME__.service
 After=network.target remote-fs.target nss-lookup.target nginx.service __MONGODB_SERVICENAME__.service
 
 [Service]
+Type=simple
 User=__APP__
+Group=__APP__
 WorkingDirectory=__FINALPATH__
 Environment="PATH=__ENV_PATH__"
 Environment="NODE_ENV=production"
@@ -12,7 +14,9 @@ ExecStart=__YNH_NODE__ main.js
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=__APP__
-Environment=MONGO_URL=mongodb://localhost:27017/rocketchat?replicaSet=rs01 MONGO_OPLOG_URL=mongodb://localhost:27017/local?replicaSet=rs01 ROOT_URL=http://__DOMAIN____PATH__ PORT=__PORT__
+Environment=MONGO_URL=mongodb://localhost:27017/rocketchat?replicaSet=01-rs
+Environment=MONGO_OPLOG_URL=mongodb://localhost:27017/local?replicaSet=01-rs Environment=ROOT_URL=http://__DOMAIN____PATH__
+Environment=PORT=__PORT__
 
 [Install]
 WantedBy=multi-user.target
