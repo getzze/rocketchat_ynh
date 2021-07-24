@@ -139,9 +139,8 @@ ynh_script_progression --message="Configuring a mongod..." --weight=1
 
 sed -i "s/^#  engine:/  engine: wiredTiger/"  /etc/mongod.conf
 sed -i "s/^#replication:/replication:\n  replSetName: rs01/" /etc/mongod.conf
-#echo -e "replication:\n  replSetName: \"rs01\"" | tee -a /etc/mongod.conf
 
-systemctl start mongod
+systemctl enable mongod && systemctl start mongod
 mongo --eval "printjson(rs.initiate())"
 
 #=================================================
