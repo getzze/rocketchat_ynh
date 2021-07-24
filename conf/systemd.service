@@ -12,7 +12,7 @@ ExecStart=__YNH_NODE__ main.js
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=__APP__
-Environment=MONGO_URL=mongodb://localhost:27017/__APP__?replicaSet=rs01  ROOT_URL=https://__DOMAIN____PATH__ MONGO_OPLOG_URL=mongodb://localhost:27017/local?replicaSet=rs01 PORT=__PORT__
+Environment=MONGO_URL=mongodb://localhost:27017/__APP__ ROOT_URL=https://__DOMAIN____PATH__ MONGO_OPLOG_URL=mongodb://localhost:27017/local?replicaSet=rs01 PORT=__PORT__
 
 [Install]
 WantedBy=multi-user.target
