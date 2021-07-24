@@ -124,15 +124,6 @@ pushd $final_path/programs/server
 popd
 
 #=================================================
-# SETUP SYSTEMD
-#=================================================
-ynh_script_progression --message="Configuring a systemd service..." --weight=1
-
-ynh_replace_string --match_string="__ENV_PATH__" --replace_string="$PATH" --target_file="../conf/systemd.service"
-
-ynh_add_systemd_config
-
-#=================================================
 # MODIFY A CONFIG FILE
 #=================================================
 ynh_script_progression --message="Configuring a mongod..." --weight=1
@@ -144,6 +135,16 @@ systemctl enable mongod && systemctl start mongod --quiet
 sleep 60
 mongo --eval "printjson(rs.initiate())"
 sleep 60
+
+#=================================================
+# SETUP SYSTEMD
+#=================================================
+ynh_script_progression --message="Configuring a systemd service..." --weight=1
+
+ynh_replace_string --match_string="__ENV_PATH__" --replace_string="$PATH" --target_file="../conf/systemd.service"
+
+ynh_add_systemd_config
+
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
 #=================================================
