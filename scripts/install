@@ -126,15 +126,15 @@ popd
 #=================================================
 # MODIFY A CONFIG FILE
 #=================================================
-ynh_script_progression --message="Configuring a mongod..." --weight=1
+# ynh_script_progression --message="Configuring a mongod..." --weight=1
 
-sed -i "s/^#  engine:/  engine: wiredTiger/"  /etc/mongod.conf
-sed -i "s/^#replication:/replication:\n  replSetName: 01-rs/" /etc/mongod.conf
+# sed -i "s/^#  engine:/  engine: wiredTiger/"  /etc/mongod.conf
+# sed -i "s/^#replication:/replication:\n  replSetName: 01-rs/" /etc/mongod.conf
 
-systemctl enable mongod && systemctl start mongod --quiet
-sleep 60
-mongo --eval "printjson(rs.initiate())"
-sleep 60
+# systemctl enable mongod && systemctl start mongod --quiet
+# sleep 60
+# mongo --eval "printjson(rs.initiate())"
+# sleep 60
 
 #=================================================
 # SETUP SYSTEMD
